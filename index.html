@@ -84,11 +84,36 @@
     border-bottom: 1px solid var(--line);
   }
   nav.top .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-weight: 800;
     font-size: 15px;
     letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  nav.top .logo img {
+    height: 32px;
+    width: auto;
+    display: block;
+    border-radius: 4px;
   }
   nav.top .logo span { color: var(--accent); }
+
+  /* Cover logo mark */
+  .cover-logo {
+    height: 64px;
+    width: auto;
+    display: block;
+    margin-bottom: 36px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .cover-logo.in { opacity: 1; transform: none; }
+  @media (max-width: 640px) { .cover-logo { height: 52px; margin-bottom: 28px; } }
   nav.top .meta {
     font-size: 12px;
     color: var(--ink-dim);
@@ -358,6 +383,67 @@
     width: 0%;
     transition: width .1s linear;
   }
+
+  /* Word-by-word headline reveal (cover) */
+  .word-reveal { font-size: clamp(44px, 7vw, 92px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; max-width: 12ch; }
+  .word-reveal em { color: var(--accent); font-style: normal; }
+  .word-reveal .w {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .word-reveal.in .w { opacity: 1; transform: none; }
+  .word-reveal.in .w1 { transition-delay: .15s; }
+  .word-reveal.in .w2 { transition-delay: .25s; }
+  .word-reveal.in .w3 { transition-delay: .38s; }
+  .word-reveal.in .w4 { transition-delay: .58s; }
+  .word-reveal.in .w5 { transition-delay: .70s; }
+  .word-reveal.in .w6 { transition-delay: .82s; }
+
+  /* Count-up stats: reserve width so layout doesn't jump */
+  .stat .n .count { display: inline-block; min-width: 0; font-variant-numeric: tabular-nums; }
+
+  /* Line-draw on operating model flow */
+  .flow { position: relative; padding-left: 36px; }
+  .flow::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: var(--accent);
+    opacity: .4;
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 2.2s cubic-bezier(.22,.7,.2,1);
+  }
+  .flow.drawn::before { transform: scaleY(1); }
+  .flow .row { position: relative; }
+  .flow .row::before {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    transform: translateY(-50%) scale(0);
+    transition: transform .6s cubic-bezier(.2,.7,.2,1);
+  }
+  .flow.drawn .row:nth-child(1)::before { transform: translateY(-50%) scale(1); transition-delay: .2s; }
+  .flow.drawn .row:nth-child(2)::before { transform: translateY(-50%) scale(1); transition-delay: .6s; }
+  .flow.drawn .row:nth-child(3)::before { transform: translateY(-50%) scale(1); transition-delay: 1.0s; }
+  .flow.drawn .row:nth-child(4)::before { transform: translateY(-50%) scale(1); transition-delay: 1.4s; }
+  .flow.drawn .row:nth-child(5)::before { transform: translateY(-50%) scale(1); transition-delay: 1.8s; }
+  @media (max-width: 640px) {
+    .flow { padding-left: 28px; }
+    .flow::before { left: 10px; }
+    .flow .row::before { left: -25px; }
+  }
 </style>
 </head>
 <body>
@@ -365,7 +451,10 @@
 <div class="progress" id="progress"></div>
 
 <nav class="top">
-  <div class="logo">PMAX<span>.</span>BrandCom</div>
+  <a class="logo" href="#cover" aria-label="PMAX — Total Marketing Partner">
+    <img src="pmax-logo.png" alt="PMAX" onerror="this.style.display='none'" />
+    <span class="logo-text">PMAX<span style="color:var(--accent)">.</span>BrandCom</span>
+  </a>
   <div style="display:flex;align-items:center;gap:16px;">
     <span class="meta">Total Marketing Partner · Vietnam</span>
     <button class="music-toggle" id="musicBtn" aria-label="Toggle ambient audio">♪ Music Off</button>
@@ -376,8 +465,9 @@
 <section id="cover">
   <div class="ambient-bg"></div>
   <div class="wrap">
+    <img src="pmax-logo.png" alt="PMAX — Total Marketing Partner" class="cover-logo" id="coverLogo" onerror="this.style.display='none'" />
     <div class="eyebrow reveal">Credential · 2026</div>
-    <h1 class="reveal d1">Total Brand<br>Communications<br><em>for Business Performance.</em></h1>
+    <h1 class="word-reveal"><span class="w w1">Total</span> <span class="w w2">Brand</span><br><span class="w w3">Communications</span><br><em><span class="w w4">for</span> <span class="w w5">Business</span> <span class="w w6">Performance.</span></em></h1>
     <p class="tagline reveal d2">One partner. Integrated brand and performance. Built for the businesses shaping Vietnam's next growth chapter.</p>
   </div>
   <div class="scroll-hint reveal d3">Scroll</div>
@@ -400,12 +490,12 @@
     <h2 class="reveal d1">A decade of building<br>brands that <span class="serif">grow businesses.</span></h2>
     <p class="lead reveal d2">Founded in 2016, PMAX is one of Vietnam's most awarded marketing companies — recognized for connecting strategy, creativity, media, data, and technology into one accountable system.</p>
     <div class="stats-grid">
-      <div class="stat reveal d1"><div class="n">700<span>+</span></div><div class="l">Brands served</div></div>
-      <div class="stat reveal d2"><div class="n">250<span>+</span></div><div class="l">Team members</div></div>
-      <div class="stat reveal d3"><div class="n">40<span>+</span></div><div class="l">National & international awards</div></div>
-      <div class="stat reveal d4"><div class="n">30<span>+</span></div><div class="l">MMA Smarties awards</div></div>
-      <div class="stat reveal d5"><div class="n">1000B<span>₫</span></div><div class="l">Media budget managed</div></div>
-      <div class="stat reveal d6"><div class="n">2016</div><div class="l">Founded in Vietnam</div></div>
+      <div class="stat reveal d1"><div class="n"><span class="count" data-target="700">0</span><span>+</span></div><div class="l">Brands served</div></div>
+      <div class="stat reveal d2"><div class="n"><span class="count" data-target="250">0</span><span>+</span></div><div class="l">Team members</div></div>
+      <div class="stat reveal d3"><div class="n"><span class="count" data-target="40">0</span><span>+</span></div><div class="l">National & international awards</div></div>
+      <div class="stat reveal d4"><div class="n"><span class="count" data-target="30">0</span><span>+</span></div><div class="l">MMA Smarties awards</div></div>
+      <div class="stat reveal d5"><div class="n"><span class="count" data-target="1000">0</span><span>B₫</span></div><div class="l">Media budget managed</div></div>
+      <div class="stat reveal d6"><div class="n"><span class="count" data-target="2016">0</span></div><div class="l">Founded in Vietnam</div></div>
     </div>
   </div>
 </section>
@@ -652,6 +742,7 @@
 </section>
 
 <footer>
+  <img src="pmax-logo.png" alt="PMAX" style="height:28px;width:auto;display:block;margin:0 auto 14px;border-radius:4px;opacity:.85;" onerror="this.style.display='none'" />
   PMAX<span>.</span>BrandCom · Total Marketing Partner · Short Credential 2026
 </footer>
 
@@ -671,6 +762,50 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Word-by-word cover headline + logo — trigger on load (cover is visible immediately)
+  window.addEventListener('load', () => {
+    requestAnimationFrame(() => {
+      const cl = document.getElementById('coverLogo');
+      if (cl) cl.classList.add('in');
+      document.querySelectorAll('.word-reveal').forEach(el => el.classList.add('in'));
+    });
+  });
+
+  // Count-up for stat numbers (easeOutCubic, 1.3s)
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1300;
+    const start = performance.now();
+    const format = (n) => n.toLocaleString('en-US');
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = format(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        countObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.35 });
+  document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
+
+  // Line-draw on operating model flow — triggers once when flow enters viewport
+  const flowObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('drawn');
+        flowObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.flow').forEach(el => flowObserver.observe(el));
 
   // Progress bar
   const progress = document.getElementById('progress');
