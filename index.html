@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>PMAX BrandCom — Total Brand Communications for Business Performance</title>
+<meta name="description" content="PMAX BrandCom — Total Marketing Partner. Integrated brand, media, creative, influence, and commerce built for business performance in Vietnam." />
+<meta property="og:title" content="PMAX BrandCom — Total Brand Communications for Business Performance" />
+<meta property="og:description" content="One partner. Integrated brand and performance. Built for business outcomes in Vietnam." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-alt: #111114;
+    --ink: #f5f5f7;
+    --ink-dim: #9a9aa3;
+    --ink-faint: #4a4a52;
+    --accent: #ff4d2e;
+    --accent-soft: #ff4d2e22;
+    --line: #1e1e24;
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  section.compact { min-height: auto; padding: 120px 0; }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
+  h1 { font-size: clamp(44px, 7vw, 92px); }
+  h2 { font-size: clamp(32px, 5vw, 60px); margin-bottom: 32px; }
+  h3 { font-size: clamp(20px, 2vw, 26px); font-weight: 600; }
+  p { font-size: clamp(16px, 1.2vw, 19px); color: var(--ink-dim); max-width: 640px; }
+  p.lead { font-size: clamp(19px, 1.6vw, 24px); color: var(--ink); max-width: 720px; font-weight: 400; }
+
+  /* Nav */
+  nav.top {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10,10,11,0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .logo {
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+  }
+  nav.top .logo span { color: var(--accent); }
+  nav.top .meta {
+    font-size: 12px;
+    color: var(--ink-dim);
+    letter-spacing: 0.02em;
+  }
+  .music-toggle {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    font-family: inherit;
+    font-size: 11px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all .3s;
+  }
+  .music-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .music-toggle.on { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+  .reveal.d4 { transition-delay: .32s; }
+  .reveal.d5 { transition-delay: .4s; }
+  .reveal.d6 { transition-delay: .48s; }
+
+  /* Cover */
+  #cover { min-height: 100vh; padding: 0; }
+  #cover .wrap { padding-top: 140px; padding-bottom: 80px; }
+  #cover h1 { max-width: 12ch; font-weight: 800; }
+  #cover h1 em { color: var(--accent); font-style: normal; }
+  #cover .tagline { margin-top: 40px; font-size: 18px; color: var(--ink-dim); max-width: 560px; }
+  #cover .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 32px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #cover .scroll-hint::after {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: var(--ink-dim);
+    animation: pulseLine 2.4s ease-in-out infinite;
+  }
+  @keyframes pulseLine {
+    0%,100% { transform: scaleX(1); opacity: .5; }
+    50% { transform: scaleX(2); opacity: 1; }
+  }
+  .ambient-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ambient-bg::before, .ambient-bg::after {
+    content: "";
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: .18;
+  }
+  .ambient-bg::before { background: var(--accent); top: -200px; right: -200px; animation: float1 14s ease-in-out infinite; }
+  .ambient-bg::after { background: #2b4dff; bottom: -250px; left: -200px; animation: float2 18s ease-in-out infinite; }
+  @keyframes float1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-40px, 60px); } }
+  @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(60px, -40px); } }
+  #cover .wrap { position: relative; z-index: 2; }
+
+  /* Stats grid */
+  .stats-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 40px; margin-top: 60px; }
+  .stats-grid .stat { border-top: 1px solid var(--line); padding-top: 18px; }
+  .stats-grid .stat .n { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+  .stats-grid .stat .n span { color: var(--accent); }
+  .stats-grid .stat .l { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 6px; }
+  @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+
+  /* Operating model diagram */
+  .flow {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .flow .row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 20px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    align-items: center;
+    background: var(--bg-alt);
+    transition: border-color .4s, transform .4s;
+  }
+  .flow .row:hover { border-color: var(--accent); transform: translateX(6px); }
+  .flow .row .num { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; font-weight: 600; }
+  .flow .row .label { font-size: 18px; font-weight: 600; color: var(--ink); }
+  .flow .row .desc { font-size: 14px; color: var(--ink-dim); margin-top: 4px; }
+  .flow .row .right { display: flex; flex-direction: column; }
+
+  /* Pillars */
+  .pillars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 56px; }
+  .pillar {
+    padding: 32px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--bg-alt);
+    transition: all .5s;
+    min-height: 240px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .pillar:hover { border-color: var(--accent); transform: translateY(-6px); background: #14141a; }
+  .pillar .n { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; font-weight: 600; }
+  .pillar h4 { font-size: 18px; font-weight: 700; margin-top: 14px; color: var(--ink); line-height: 1.2; }
+  .pillar p { font-size: 13px; color: var(--ink-dim); margin-top: 10px; line-height: 1.55; }
+  @media (max-width: 900px) { .pillars { grid-template-columns: 1fr 1fr; } }
+
+  /* USP Five */
+  .usp { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; margin-top: 56px; border-top: 1px solid var(--line); }
+  .usp .item { padding: 36px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .usp .item:last-child { border-right: none; }
+  .usp .item .k { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; color: var(--accent); }
+  .usp .item .t { font-size: 15px; font-weight: 600; margin-top: 14px; color: var(--ink); }
+  .usp .item .d { font-size: 13px; color: var(--ink-dim); margin-top: 8px; line-height: 1.55; }
+  @media (max-width: 900px) { .usp { grid-template-columns: 1fr 1fr; } .usp .item:nth-child(2) { border-right: none; } }
+
+  /* Tech stack */
+  .tech { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 56px; }
+  .tech .chip {
+    padding: 28px 20px;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+    transition: all .5s;
+  }
+  .tech .chip:hover { border-color: var(--accent); transform: scale(1.04); }
+  .tech .chip .n { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+  .tech .chip .n span { color: var(--accent); }
+  .tech .chip .d { font-size: 12px; color: var(--ink-dim); margin-top: 8px; }
+  @media (max-width: 900px) { .tech { grid-template-columns: 1fr 1fr; } }
+
+  /* Leadership */
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .team .card {
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--bg-alt);
+    transition: all .4s;
+  }
+  .team .card:hover { border-color: var(--accent); }
+  .team .card .role { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; font-weight: 600; text-transform: uppercase; }
+  .team .card .name { font-size: 22px; font-weight: 700; margin-top: 8px; }
+  .team .card .bio { font-size: 13px; color: var(--ink-dim); margin-top: 12px; line-height: 1.55; }
+  @media (max-width: 900px) { .team { grid-template-columns: 1fr; } }
+
+  /* Logo wall */
+  .logo-wall {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    margin-top: 56px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .logo-wall .cell {
+    background: var(--bg-alt);
+    padding: 32px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--ink-dim);
+    font-weight: 500;
+    min-height: 92px;
+    text-align: center;
+    transition: all .4s;
+  }
+  .logo-wall .cell:hover { background: #181820; color: var(--ink); }
+  @media (max-width: 900px) { .logo-wall { grid-template-columns: repeat(3, 1fr); } }
+
+  /* Case study */
+  .case {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .case .left .tag { font-size: 11px; color: var(--accent); letter-spacing: 0.12em; font-weight: 600; text-transform: uppercase; }
+  .case .left h2 { margin-top: 16px; margin-bottom: 20px; font-size: clamp(32px, 4vw, 52px); }
+  .case .left .challenge { color: var(--ink-dim); font-size: 16px; margin-bottom: 20px; }
+  .case .left .solution { color: var(--ink); font-size: 17px; font-weight: 500; padding: 20px 24px; border-left: 2px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+  .case .right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .case .right .metric {
+    padding: 28px 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--bg-alt);
+    transition: all .4s;
+  }
+  .case .right .metric:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .case .right .metric .v { font-size: 44px; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; }
+  .case .right .metric .l { font-size: 12px; color: var(--ink-dim); margin-top: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+  @media (max-width: 900px) { .case { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* Awards */
+  .awards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .awards-grid .a {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg-alt);
+    font-size: 13px;
+    color: var(--ink-dim);
+    transition: all .4s;
+  }
+  .awards-grid .a:hover { border-color: var(--accent); color: var(--ink); }
+  .awards-grid .a strong { display: block; color: var(--accent); font-size: 11px; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; }
+  @media (max-width: 900px) { .awards-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* CTA */
+  #cta { background: var(--bg-alt); }
+  #cta .wrap { text-align: center; }
+  #cta h2 { font-size: clamp(40px, 6vw, 84px); max-width: 16ch; margin: 0 auto 28px; }
+  #cta h2 em { color: var(--accent); font-style: normal; }
+  #cta p { margin: 0 auto 48px; }
+  #cta .contact {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 32px 48px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--bg);
+  }
+  #cta .contact a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px; transition: color .3s; }
+  #cta .contact a:hover { color: var(--accent); }
+  #cta .contact .k { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  footer { padding: 40px 32px; text-align: center; font-size: 12px; color: var(--ink-faint); border-top: 1px solid var(--line); }
+  footer span { color: var(--accent); }
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 200;
+    width: 0%;
+    transition: width .1s linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="top">
+  <div class="logo">PMAX<span>.</span>BrandCom</div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span class="meta">Total Marketing Partner · Vietnam</span>
+    <button class="music-toggle" id="musicBtn" aria-label="Toggle ambient audio">♪ Music Off</button>
+  </div>
+</nav>
+
+<!-- 01 COVER -->
+<section id="cover">
+  <div class="ambient-bg"></div>
+  <div class="wrap">
+    <div class="eyebrow reveal">Credential · 2026</div>
+    <h1 class="reveal d1">Total Brand<br>Communications<br><em>for Business Performance.</em></h1>
+    <p class="tagline reveal d2">One partner. Integrated brand and performance. Built for the businesses shaping Vietnam's next growth chapter.</p>
+  </div>
+  <div class="scroll-hint reveal d3">Scroll</div>
+</section>
+
+<!-- 02 THE SHIFT -->
+<section id="shift">
+  <div class="wrap">
+    <div class="eyebrow reveal">01 · The shift</div>
+    <h2 class="reveal d1">Brand and performance<br>can no longer live<br>in <span class="serif">separate rooms.</span></h2>
+    <p class="lead reveal d2">For the last decade, Vietnamese enterprises have run brand and performance as two disconnected budgets, two disconnected teams, and two disconnected conversations. That model has run out of leverage. The businesses winning today treat brand-building and commercial performance as one integrated system — and they expect their partners to do the same.</p>
+    <p class="reveal d3" style="margin-top:24px;">PMAX BrandCom exists to be that partner.</p>
+  </div>
+</section>
+
+<!-- 03 AT A GLANCE -->
+<section id="glance">
+  <div class="wrap">
+    <div class="eyebrow reveal">02 · PMAX at a glance</div>
+    <h2 class="reveal d1">A decade of building<br>brands that <span class="serif">grow businesses.</span></h2>
+    <p class="lead reveal d2">Founded in 2016, PMAX is one of Vietnam's most awarded marketing companies — recognized for connecting strategy, creativity, media, data, and technology into one accountable system.</p>
+    <div class="stats-grid">
+      <div class="stat reveal d1"><div class="n">700<span>+</span></div><div class="l">Brands served</div></div>
+      <div class="stat reveal d2"><div class="n">250<span>+</span></div><div class="l">Team members</div></div>
+      <div class="stat reveal d3"><div class="n">40<span>+</span></div><div class="l">National & international awards</div></div>
+      <div class="stat reveal d4"><div class="n">30<span>+</span></div><div class="l">MMA Smarties awards</div></div>
+      <div class="stat reveal d5"><div class="n">1000B<span>₫</span></div><div class="l">Media budget managed</div></div>
+      <div class="stat reveal d6"><div class="n">2016</div><div class="l">Founded in Vietnam</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 WHAT WE DO -->
+<section id="what">
+  <div class="wrap">
+    <div class="eyebrow reveal">03 · What we do</div>
+    <h2 class="reveal d1">Total Marketing Partner.<br><span class="serif">One integrated team.</span><br>One accountable outcome.</h2>
+    <p class="lead reveal d2">PMAX BrandCom is not a creative agency, not a media agency, and not a performance shop. It is an integrated marketing partner that combines strategy, brand, creative, media, influence, commerce, and measurement under one roof — and holds itself accountable for the business result, not just the campaign.</p>
+  </div>
+</section>
+
+<!-- 05 OPERATING MODEL -->
+<section id="model">
+  <div class="wrap">
+    <div class="eyebrow reveal">04 · Operating model</div>
+    <h2 class="reveal d1">From strategy to<br>full-funnel execution.<br><span class="serif">One closed loop.</span></h2>
+    <p class="reveal d2">A single integrated flow that moves from business logic to brand logic to commercial outcome — with data and measurement running underneath every layer.</p>
+    <div class="flow">
+      <div class="row reveal d1">
+        <div class="num">01 — INPUT</div>
+        <div class="right"><div class="label">Business & Marketing Strategy</div><div class="desc">STP logic rooted in business objectives, category dynamics, and growth priorities.</div></div>
+      </div>
+      <div class="row reveal d2">
+        <div class="num">02 — DEFINE</div>
+        <div class="right"><div class="label">Brand Strategy</div><div class="desc">Brand positioning, architecture, story, and communication platform.</div></div>
+      </div>
+      <div class="row reveal d3">
+        <div class="num">03 — CREATE</div>
+        <div class="right"><div class="label">Creative & Content</div><div class="desc">Insight-led concepts. Creative-for-Performance mindset. Produced at scale.</div></div>
+      </div>
+      <div class="row reveal d4">
+        <div class="num">04 — DELIVER</div>
+        <div class="right"><div class="label">Integrated Media & Influence</div><div class="desc">Paid · Owned · Earned · MCNs · Livestream · E-commerce — managed as one funnel.</div></div>
+      </div>
+      <div class="row reveal d5">
+        <div class="num">05 — LEARN</div>
+        <div class="right"><div class="label">Data, Measurement & MMM</div><div class="desc">Continuous optimization across channels, creative, audience, and product.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PILLARS -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="eyebrow reveal">05 · Five solution pillars</div>
+    <h2 class="reveal d1">Wide in scope.<br><span class="serif">Strong in depth.</span></h2>
+    <p class="reveal d2">Five integrated solution packages with proven track records — flexible enough to deliver as a partner, a program, or a single project.</p>
+    <div class="pillars">
+      <div class="pillar reveal d1"><div><div class="n">01</div><h4>Total Marketing Consulting</h4><p>Market entry, growth strategy, brand strategy, marketing science, tech & data consulting.</p></div></div>
+      <div class="pillar reveal d2"><div><div class="n">02</div><h4>Total Brand Communications</h4><p>IMC Thematic, Brand Launch, Product Launch, Repositioning, Creative Production.</p></div></div>
+      <div class="pillar reveal d3"><div><div class="n">03</div><h4>Total Media</h4><p>Media Branding, Media E-commerce, Media Lead Generation — full-funnel O2O.</p></div></div>
+      <div class="pillar reveal d4"><div><div class="n">04</div><h4>Total MCNs Powerhouse</h4><p>Influencer partnership, creator development, mega & performance livestream operation.</p></div></div>
+      <div class="pillar reveal d5"><div><div class="n">05</div><h4>Total E-commerce</h4><p>Multi-channel e-commerce management, affiliate marketing, end-to-end activation.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 TOTAL BRAND COMMUNICATIONS -->
+<section id="brandcom">
+  <div class="wrap">
+    <div class="eyebrow reveal">06 · Total Brand Communications</div>
+    <h2 class="reveal d1">Inside the <span class="serif">BrandCom</span> offer.</h2>
+    <p class="lead reveal d2">Four integrated campaign types, built on the same commercial DNA — insight-led, creatively strong, media-connected, and measured against business outcomes.</p>
+    <div class="pillars" style="grid-template-columns:repeat(4,1fr);">
+      <div class="pillar reveal d1"><div><div class="n">IMC</div><h4>Thematic Campaigns</h4><p>Culturally connected, insight-driven campaigns that strengthen brand equity and drive full-funnel impact.</p></div></div>
+      <div class="pillar reveal d2"><div><div class="n">IMC</div><h4>Brand Launch</h4><p>End-to-end brand launches that blend strategic insight, creative impact, and precision media.</p></div></div>
+      <div class="pillar reveal d3"><div><div class="n">IMC</div><h4>Product Launch</h4><p>Launches that unite strategy, creative, media, and engagement to accelerate adoption.</p></div></div>
+      <div class="pillar reveal d4"><div><div class="n">IMC</div><h4>Repositioning</h4><p>Strategic repositioning that redefines perception and unlocks new growth opportunities.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 USP -->
+<section id="usp">
+  <div class="wrap">
+    <div class="eyebrow reveal">07 · Why PMAX is different</div>
+    <h2 class="reveal d1">Five reasons<br>senior marketers <span class="serif">choose us.</span></h2>
+    <div class="usp">
+      <div class="item reveal d1"><div class="k">01</div><div class="t">Performance Outcome</div><div class="d">Measured against business, brand, marketing, and campaign KPIs — not vanity metrics.</div></div>
+      <div class="item reveal d2"><div class="k">02</div><div class="t">Cost Effectiveness</div><div class="d">MMM, CFP, and PAXY turn every investment into an explainable return.</div></div>
+      <div class="item reveal d3"><div class="k">03</div><div class="t">Convenience</div><div class="d">One integrated function, omni-channel network, deep partner ecosystem.</div></div>
+      <div class="item reveal d4"><div class="k">04</div><div class="t">Speed</div><div class="d">Product R&D and AI/Tech capability that move faster than traditional agency timelines.</div></div>
+      <div class="item reveal d5"><div class="k">05</div><div class="t">Innovation</div><div class="d">An ecosystem built for continuous product development, not repeating old playbooks.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 TECH & DATA -->
+<section id="tech">
+  <div class="wrap">
+    <div class="eyebrow reveal">08 · Proprietary tech & data</div>
+    <h2 class="reveal d1">The science behind<br>the <span class="serif">commercial outcome.</span></h2>
+    <p class="lead reveal d2">A proprietary stack that makes brand and performance decisions measurable, defensible, and repeatable at enterprise scale.</p>
+    <div class="tech">
+      <div class="chip reveal d1"><div class="n">PAX<span>Y</span></div><div class="d">Multi-channel data aggregation & AI-based optimization. +35% efficiency uplift.</div></div>
+      <div class="chip reveal d2"><div class="n">MMM</div><div class="d">Marketing Mix Modeling for cross-channel impact and budget reallocation.</div></div>
+      <div class="chip reveal d3"><div class="n">CFP</div><div class="d">Creative for Performance — data analytics applied to creative effectiveness.</div></div>
+      <div class="chip reveal d4"><div class="n">ScanMax</div><div class="d">Brand Health Check powered by structured brand and media signals.</div></div>
+      <div class="chip reveal d5"><div class="n">AuditVista</div><div class="d">Brand compliance and governance across executions and channels.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 LEADERSHIP -->
+<section id="team">
+  <div class="wrap">
+    <div class="eyebrow reveal">09 · Leadership</div>
+    <h2 class="reveal d1">Built by operators<br>who've <span class="serif">run the P&L.</span></h2>
+    <p class="lead reveal d2">A leadership team shaped by Oxford, McKinsey, Lazada, MoMo, Goldman Sachs, and global agency CMO experience — deeply familiar with what senior clients need from a strategic partner.</p>
+    <div class="team">
+      <div class="card reveal d1"><div class="role">Co-founder · CEO</div><div class="name">Long Le</div><div class="bio">Former CMO Lazada Vietnam. Former McKinsey consultant. Oxford-educated. 16+ years in corporate strategy and integrated performance marketing.</div></div>
+      <div class="card reveal d2"><div class="role">Co-founder · COO</div><div class="name">Hanh Le</div><div class="bio">Former Head of Mobile & Campaign, Lazada Vietnam. 14+ years. Managed marketing budgets exceeding 1,000 billion VND across 400+ businesses.</div></div>
+      <div class="card reveal d3"><div class="role">Co-founder · CCO</div><div class="name">Trung Tran</div><div class="bio">Former Display Marketing Manager, Lazada Vietnam. 14+ years. 700+ client portfolio with NPS consistently above 70% year over year.</div></div>
+      <div class="card reveal d4"><div class="role">Chief Transformation Officer</div><div class="name">Viet Anh</div><div class="bio">Oxford Computer Science. Former MoMo Product Director. Career across Goldman Sachs, Morgan Stanley, Accenture, Standard Chartered.</div></div>
+      <div class="card reveal d5"><div class="role">Managing Director · Brand Solution</div><div class="name">Nga Dao</div><div class="bio">Former CMO Pluxee (Sodexo), BAEMIN Vietnam, Leflair. 18+ years across integrated marketing, brand development, and enterprise CMO roles.</div></div>
+      <div class="card reveal d6"><div class="role">Head of MCNs & Livestream</div><div class="name">Duy Pham</div><div class="bio">11+ years in digital. The key driver behind PMAX's MCN solution with 3,000+ livestream sessions delivered across 100+ brands.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 CLIENTS & PARTNERS -->
+<section id="clients">
+  <div class="wrap">
+    <div class="eyebrow reveal">10 · Clients & partners</div>
+    <h2 class="reveal d1">Trusted by the brands<br><span class="serif">shaping Vietnam.</span></h2>
+    <p class="lead reveal d2">700+ clients across Electronics & Home Appliances, FMCG, Finance, Health & Beauty, Retail, and Technology. Premium partner of every major platform operating in Vietnam.</p>
+    <div class="logo-wall">
+      <div class="cell">Electronics<br>& Home</div>
+      <div class="cell">FMCG</div>
+      <div class="cell">Finance</div>
+      <div class="cell">Health<br>& Beauty</div>
+      <div class="cell">General<br>Retail</div>
+      <div class="cell">Technology</div>
+      <div class="cell">Meta</div>
+      <div class="cell">Google</div>
+      <div class="cell">TikTok</div>
+      <div class="cell">TikTok Shop</div>
+      <div class="cell">Shopee</div>
+      <div class="cell">Zalo</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 CASE 1 TIKTOK SHOP -->
+<section id="case-tts">
+  <div class="wrap">
+    <div class="eyebrow reveal">11 · Case Study 01</div>
+    <div class="case">
+      <div class="left">
+        <div class="tag reveal">TikTok Shop · Mega 5.5</div>
+        <h2 class="reveal d1">Branding for Performance with a creator-led approach.</h2>
+        <p class="challenge reveal d2">In a low-sale season, TikTok Shop needed a groundbreaking Mega 5.5 to fortify market share against competitors replicating live shopping features.</p>
+        <div class="solution reveal d3">We empowered creators as the core discovery engine, produced 15 category-targeted videos for personalized experiences, and combined a data predictive model with real-time optimization across the funnel.</div>
+      </div>
+      <div class="right">
+        <div class="metric reveal d1"><div class="v">+70%</div><div class="l">GMV uplift — highest in SEA</div></div>
+        <div class="metric reveal d2"><div class="v">14M+</div><div class="l">Traffic — highest in VN & SEA</div></div>
+        <div class="metric reveal d3"><div class="v">245%</div><div class="l">GMV vs. KPI</div></div>
+        <div class="metric reveal d4"><div class="v">200:1</div><div class="l">Marketing ROI</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 CASE 2 VAS -->
+<section id="case-vas">
+  <div class="wrap">
+    <div class="eyebrow reveal">12 · Case Study 02</div>
+    <div class="case">
+      <div class="left">
+        <div class="tag reveal">VAS · 20-Year Brand Milestone</div>
+        <h2 class="reveal d1">A legacy brand rebuilt for a new generation of parents.</h2>
+        <p class="challenge reveal d2">VAS needed to transform its 20-year milestone into a premium brand upgrade — while still hitting aggressive qualified lead targets on a reduced budget.</p>
+        <div class="solution reveal d3">"Home of Excellence" — a full-funnel attack combining progressive parent insight, precise marketing across every touchpoint, and real-time data optimization across 100+ creative assets.</div>
+      </div>
+      <div class="right">
+        <div class="metric reveal d1"><div class="v">6.5:1</div><div class="l">Marketing ROI</div></div>
+        <div class="metric reveal d2"><div class="v">+165%</div><div class="l">vs. Qualified Lead KPI</div></div>
+        <div class="metric reveal d3"><div class="v">+51%</div><div class="l">YoY lead growth</div></div>
+        <div class="metric reveal d4"><div class="v">93%</div><div class="l">Parent satisfaction</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 CASE 3 SSI -->
+<section id="case-ssi">
+  <div class="wrap">
+    <div class="eyebrow reveal">13 · Case Study 03</div>
+    <div class="case">
+      <div class="left">
+        <div class="tag reveal">SSI · Brand Reinvention</div>
+        <h2 class="reveal d1">Repositioning a legacy stock brand for a younger investor.</h2>
+        <p class="challenge reveal d2">Vietnam's most long-standing stock exchange needed to resonate with a new, youthful generation of investors who expected "same vibe" in every aspect of their financial lives.</p>
+        <div class="solution reveal d3">"Chính là tôi" — a hip-hop iTVC and a range of innovative communication materials that transformed SSI's visual, language, and presentation into a truly youthful brand identity.</div>
+      </div>
+      <div class="right">
+        <div class="metric reveal d1"><div class="v">Brand</div><div class="l">Reinvention delivered</div></div>
+        <div class="metric reveal d2"><div class="v">Gen Z</div><div class="l">New investor segment reached</div></div>
+        <div class="metric reveal d3"><div class="v">Hero</div><div class="l">iTVC MV launched</div></div>
+        <div class="metric reveal d4"><div class="v">Full</div><div class="l">Brand system refresh</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 AWARDS -->
+<section id="awards">
+  <div class="wrap">
+    <div class="eyebrow reveal">14 · Recognition</div>
+    <h2 class="reveal d1">40<span class="serif">+</span> awards.<br>One <span class="serif">consistent</span> standard.</h2>
+    <p class="lead reveal d2">Validated across global, regional, and Vietnamese industry platforms — MMA Smarties, Agency of the Year, Google Premier Partner Awards, TikTok Advertising Awards, and Meta Reels Impact Awards.</p>
+    <div class="awards-grid">
+      <div class="a reveal d1"><strong>MMA Smarties X Global</strong>O2O / New Retail · Real Time Marketing · Instant Impact</div>
+      <div class="a reveal d2"><strong>MMA Smarties APAC</strong>Digital Agency of the Year 2023 · Real Time Marketing · Instant Impact</div>
+      <div class="a reveal d3"><strong>MMA Smarties Vietnam</strong>Digital Agency of the Year 2024 · Integrated E-commerce Innovation 2024 & 2025</div>
+      <div class="a reveal d4"><strong>Agency of the Year</strong>SEA E-commerce · SEA B2C · SEA Performance · Vietnam Digital Innovation</div>
+      <div class="a reveal d5"><strong>Google Premier Partner</strong>SEA App Growth Winner · E-commerce Sales Solutions Excellence</div>
+      <div class="a reveal d6"><strong>TikTok Advertising Awards</strong>Best Performance Campaign · Unilever Pureit</div>
+      <div class="a reveal d1"><strong>Meta Reels Impact 2024</strong>Outstanding Growth Partner</div>
+      <div class="a reveal d2"><strong>Vietnam Independent AOY</strong>2021 · 2022 · 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 CTA -->
+<section id="cta">
+  <div class="wrap">
+    <div class="eyebrow reveal" style="justify-content:center;">Let's build something</div>
+    <h2 class="reveal d1">If you're rethinking<br>how brand and performance<br><em>work together</em> —<br>let's talk.</h2>
+    <p class="lead reveal d2" style="margin-left:auto;margin-right:auto;">PMAX BrandCom works with ambitious enterprise brands in Vietnam and across Asia. First conversations are free, senior, and directly with the leadership team.</p>
+    <div class="contact reveal d3">
+      <div class="k">Email</div>
+      <a href="mailto:contact@pmax.com.vn">contact@pmax.com.vn</a>
+      <div class="k" style="margin-top:12px;">Hotline</div>
+      <a href="tel:+842873001778">(+84) 28 7300 1778</a>
+      <div class="k" style="margin-top:12px;">Web</div>
+      <a href="https://www.pmax.com.vn" target="_blank" rel="noopener">www.pmax.com.vn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  PMAX<span>.</span>BrandCom · Total Marketing Partner · Short Credential 2026
+</footer>
+
+<!-- Optional ambient music. File not included. If you want music, drop an .mp3 next to this file named ambient.mp3 -->
+<audio id="ambient" loop preload="none">
+  <source src="ambient.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Progress bar
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+  }, { passive: true });
+
+  // Music toggle (off by default, user-initiated)
+  const btn = document.getElementById('musicBtn');
+  const audio = document.getElementById('ambient');
+  let on = false;
+  btn.addEventListener('click', () => {
+    on = !on;
+    if (on) {
+      audio.volume = 0.25;
+      audio.play().then(() => {
+        btn.classList.add('on');
+        btn.textContent = '♪ Music On';
+      }).catch(() => {
+        btn.textContent = '♪ No audio file';
+        on = false;
+      });
+    } else {
+      audio.pause();
+      btn.classList.remove('on');
+      btn.textContent = '♪ Music Off';
+    }
+  });
+</script>
+</body>
+</html>
